@@ -31,6 +31,8 @@ load(File.expand_path('../../lib/generators/kue/install/templates/migration.rb',
 KueSettingsTableCreateMigration.new.up
 
 RSpec.configure do |configuration|
+  configuration.expect_with(:rspec) { |c| c.syntax = :should }
+
   configuration.after(:each) do
     KueStore.destroy_all
   end

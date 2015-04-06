@@ -4,7 +4,7 @@ class KueSettingsTableCreateMigration < ActiveRecord::Migration
    t.string :key
    t.text :value
       
-   t.timestamps
+   t.timestamps null: false
   end
   add_index :kue_settings, :key, :unique => true
  end
