@@ -2,6 +2,10 @@
 
 Kue is a Rails ready key value store that uses active-record under the hood.
 
+###Build Status
+
+[![Build Status](https://travis-ci.org/dan-watson/kue.svg)](https://travis-ci.org/dan-watson/kue)
+
 ###What does Kue mean?
 K(eyVal)ue 
 
