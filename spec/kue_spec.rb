@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe KueStore do
   it 'should have the kue_settings table correctly setup' do
-    ActiveRecord::Base.connection.table_exists?(:kue_settings).should be_true
+    ActiveRecord::Base.connection.table_exists?(:kue_settings).should be_truthy
   end
 
   it 'should save a new key and value' do
@@ -27,17 +27,17 @@ describe KueStore do
   end
 
   it 'should check for existance' do
-    KueStore.exists?(:non_existant).should be_false
+    KueStore.exists?(:non_existant).should be_falsey
 
     KueStore[:existant] = 109
-    KueStore.exists?(:existant).should be_true
+    KueStore.exists?(:existant).should be_truthy
   end
 
   it 'should delete a key and value' do
     KueStore[:delete_me] = 1098
-    KueStore.exists?(:delete_me).should be_true
-    KueStore.delete!(:delete_me).should be_true
-    KueStore.exists?(:delete_me).should be_false
+    KueStore.exists?(:delete_me).should be_truthy
+    KueStore.delete!(:delete_me).should be_truthy
+    KueStore.exists?(:delete_me).should be_falsey
   end
 
   it 'should not throw an error when deleting a key that does not exist' do
